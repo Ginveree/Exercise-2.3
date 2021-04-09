@@ -1,0 +1,76 @@
+package Exercise2point3;
+import java.util.Scanner;
+public class Sheep {
+	Scanner scan = new Scanner(System.in);
+	
+	void printDetails(String location, String breed) {
+		System.out.println("Document 1 - Breed");
+		System.out.println("******************");
+		System.out.print("Do this sheep has grazier? (Y/N) ");
+		char a = scan.next().charAt(0);	
+		
+		if ((a == 'y') || (a == 'Y')) {
+			scan.nextLine();
+			System.out.print("Grazier name: ");
+			String name = scan.nextLine();
+			System.out.print("Age of sheep (month): ");
+			int age = scan.nextInt();
+			
+			System.out.println("\nLocation: " + location);		
+			System.out.println("Breed of the sheep: " + breed);
+			System.out.println("Grazier: " + name);
+			System.out.println("Age of sheep (month): " + age);
+		}
+		else {
+			scan.nextLine();
+			System.out.print("Age of sheep (month): ");
+			int age = scan.nextInt();
+				
+			System.out.println("\nLocation: " + location);	
+			System.out.println("Breed of the sheep: " + breed);
+			System.out.println("Grazier: None");
+			System.out.println("Age of sheep (month): " + age);
+			
+		}
+	}
+	void printHeight() {
+		System.out.println("\nDocument 2 - Height");
+		System.out.println("*******************");
+		System.out.print("Number of sheep: ");
+		int num = scan.nextInt();
+		int numOfSheep[] = new int[num];
+		double heightOfSheeps[] = new double[num];
+		for (int i = 0; i < numOfSheep.length; i++) {
+		     System.out.print("Height of sheep " + (i+1) + ": ");
+		     heightOfSheeps[i] = scan.nextDouble();		     
+		}
+		System.out.println();
+		for (int i = 0; i < heightOfSheeps.length; i++) {
+		System.out.println("Height of the sheep " + (i+1) +": " + heightOfSheeps[i] + " cm");
+	}
+	}
+	void printSold() {	
+		System.out.println("\nDocument 3 - Price");
+		System.out.println("******************");
+		System.out.print("Price of a sheep: ");
+		double price = scan.nextDouble();
+		System.out.print("Quantity of sheep: ");
+		int quantity = scan.nextInt();
+		
+		double totalPrice = price * quantity;
+		
+		System.out.printf("\n%s%d%s%.2f\n","The total price of ",quantity," sheeps is RM ",totalPrice);
+	}
+	void tax(double tax) {
+		System.out.println("\nDocument 4 - Tax");
+		System.out.println("****************");
+		System.out.print("Total price sold: ");
+		double totalPrice = scan.nextDouble();
+		
+		double totalTax = totalPrice * tax;
+		
+		System.out.println("Tax: " + tax);
+		System.out.printf("\n%s%.2f\n","Total tax: RM ",totalTax);
+		System.out.println();	
+	}
+}
